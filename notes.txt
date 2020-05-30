@@ -1,0 +1,25 @@
+1) Install
+   npm install bootstrap jquery popper
+
+2) Update the angular.json
+
+  "styles": [
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+
+3) Install the datepicker
+   npm install --save angular-bootstrap-datetimepicker bootstrap moment open-iconic
+   npm install @syncfusion/ej2-angular-calendars --save
+   ng add @angular/material
+
+	npm install --save  @angular-material-components/datetime-picker
+	npm install --save  @angular-material-components/moment-adapter
+        npm install moment
+
+
+
