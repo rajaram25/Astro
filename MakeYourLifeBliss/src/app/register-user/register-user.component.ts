@@ -20,12 +20,12 @@ export class RegisterUserComponent implements OnInit {
   ngOnInit() {
     this.registerForm = this.formBuilder.group(
       {
-        title: ["", Validators.required],
-        firstName: ["", Validators.required],
-        lastName: ["", Validators.required],
+        userName: ["", Validators.required],
+        gender: ["", Validators.required],
         dateOfBirth: [""],
         placeOfBirth: ["", Validators.required],
         email: ["", [Validators.required, Validators.email]],
+        mobileNumber: ["", Validators.required],
         password: ["", [Validators.required, Validators.minLength(6)]],
         confirmPassword: ["", Validators.required],
         acceptTerms: [false, Validators.requiredTrue],
@@ -46,22 +46,22 @@ export class RegisterUserComponent implements OnInit {
 
     //let data: any = this.userService.getListOfUsers();
 
-    let user = new User();
-    user.UserName = "test1";
-    user.Gender = "F";
-    user.DateOfBirth = new Date();
-    user.PlaceOfBirth = "Place1";
-    user.Email = "raj1@gmail.com";
-    user.MobileNo = 65341;
-    user.Password = "welcome1";
-    this.userService.addUser(user);
-
     //console.log("test - " + JSON.stringify(data));
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
     }
+
+    let user = new User();
+    user.UserName = this.f.userName.value;
+    user.Gender = this.f.gender.value;
+    user.DateOfBirth = this.f.dateOfBirth.value;
+    user.PlaceOfBirth = this.f.placeOfBirth.value;
+    user.Email = this.f.email.value;
+    user.MobileNo = this.f.mobileNumber.value;
+    user.Password = this.f.password.value;
+    this.userService.addUser(user);
 
     // display form values on success
     alert(

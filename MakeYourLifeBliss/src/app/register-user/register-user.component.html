@@ -4,7 +4,7 @@
   <div class="card-body">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="form-row">
-        <div class="form-group col">
+        <!-- <div class="form-group col">
           <label>Title</label>
           <select
             formControlName="title"
@@ -20,34 +20,68 @@
           <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
             <div *ngIf="f.title.errors.required">Title is required</div>
           </div>
-        </div>
-        <div class="form-group col-5">
-          <label>First Name</label>
+        </div> -->
+        <div class="form-group col">
+          <label>Name</label>
           <input
             type="text"
-            formControlName="firstName"
+            formControlName="userName"
             class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+            [ngClass]="{ 'is-invalid': submitted && f.userName.errors }"
           />
-          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-            <div *ngIf="f.firstName.errors.required">
-              First Name is required
+          <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+            <div *ngIf="f.userName.errors.required">
+              Name is required
             </div>
           </div>
         </div>
-        <div class="form-group col-5">
-          <label>Last Name</label>
+      </div>
+
+      <fieldset class="form-group">
+        <label class="col-form-legend">Gender</label>
+        <div class="col-10">
+          <!-- <label class="form-check-label col-5">
+            <input
+              type="radio"
+              class="form-check-input"
+              formControlName="gender"
+              value="F"
+              [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+            />
+            Female
+          </label>
+          <label class="form-check-label col-5">
+            <input
+              type="radio"
+              class="form-check-input"
+              formControlName="gender"
+              value="M"
+            />
+            Male
+          </label> -->
           <input
-            type="text"
-            formControlName="lastName"
-            class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+            type="radio"
+            value="male"
+            formControlName="gender"
+            [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
           />
-          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+          Male
+          <input
+            type="radio"
+            value="female"
+            formControlName="gender"
+            [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+          />
+          Female
+
+          <div *ngIf="submitted && f.gender.invalid" class="invalid-feedback">
+            <div *ngIf="f.gender.invalid" class="col">
+              Gender is required
+            </div>
           </div>
         </div>
-      </div>
+      </fieldset>
+
       <div class="form-group">
         <label>Date of Birth</label>
         <input
@@ -56,6 +90,7 @@
           type="datetime-local"
           [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }"
         />
+        
         <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
           <div *ngIf="f.dateOfBirth.errors.required">
             Date of Birth is required
@@ -92,6 +127,24 @@
           <div *ngIf="f.email.errors.required">Email is required</div>
           <div *ngIf="f.email.errors.email">
             Email must be a valid email address
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input
+          type="text"
+          formControlName="mobileNumber"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }"
+        />
+
+        <div
+          *ngIf="submitted && f.mobileNumber.errors"
+          class="invalid-feedback"
+        >
+          <div *ngIf="f.mobileNumber.errors.required">
+            Mobile number is required
           </div>
         </div>
       </div>
