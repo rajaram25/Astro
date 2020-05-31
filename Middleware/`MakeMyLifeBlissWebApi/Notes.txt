@@ -1,0 +1,10 @@
+Install the followings
+-------------------------
+
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.SqlServer.Design
+Microsoft.EntityFrameworkCore.Tools
+
+
+Scaffold-DbContext "Server=MD2BMP7C;Database=MakeYourLifeBliss;UID=sa;PWD=££££££££;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+Scaffold-DbContext "Server=MD2BMP7C;Database=MakeYourLifeBliss;Integrated Security=SSPI;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models

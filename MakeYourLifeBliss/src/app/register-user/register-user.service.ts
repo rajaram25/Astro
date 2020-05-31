@@ -1,43 +1,42 @@
 import { Injectable, Inject } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { User } from "../entity/user";
 
 @Injectable({
   providedIn: "root",
 })
 export class RegisterUserService {
-  // myAppUrl: string;
-  // myApiUrl: string;
-  // httpOptions = {
-  //   headers: new HttpHeaders({
-  //     'Content-Type': 'application/json; charset=utf-8'
-  //   })
-  // };
-
-  PATH: string = "weatherforecast";
+  myAppUrl: string;
+  myApiUrl: string;
+  httpOptions = {
+    headers: new HttpHeaders({
+      "Content-Type": "application/json; charset=utf-8",
+    }),
+  };
 
   constructor(
     private http: HttpClient,
     @Inject("API_URL") private _apiUrl: string
   ) {}
 
-  public forecasts: WeatherForecast[];
-
-  getWeaterForeCast() {
-    return this.http
-      .get<WeatherForecast[]>(`${this._apiUrl}/${this.PATH}`)
-      .subscribe(
-        (result) => {
-          this.forecasts = result;
-          console.log("test-", result);
-        },
-        (error) => console.error(error)
-      );
+  public listOfUsers: User[];
+  getData: string = "api/Users";
+  getListOfUsers() {
+    return this.http.get<User[]>(`${this._apiUrl}/${this.getData}`).subscribe(
+      (result) => {
+        this.listOfUsers = result;
+        console.log("test-listOfUsers-", this.listOfUsers);
+      },
+      (error) => console.error(error)
+    );
   }
-}
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+  addData: string = "api/users";
+  addUser(user: User) {
+    this.http
+      .post(`${this._apiUrl}/${this.addData}`, user, this.httpOptions)
+      .subscribe((listOfUsers) => {
+        console.log("list of existing users", listOfUsers);
+      });
+  }
 }

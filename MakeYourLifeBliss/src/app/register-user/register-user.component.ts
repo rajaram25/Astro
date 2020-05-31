@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { MustMatch } from "../shared/must-match";
 import { RegisterUserService } from "./register-user.service";
+import { User } from "../entity/user";
 
 @Component({
   selector: "app-register-user",
@@ -43,7 +44,18 @@ export class RegisterUserComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    let data: any = this.userService.getWeaterForeCast();
+    //let data: any = this.userService.getListOfUsers();
+
+    let user = new User();
+    user.UserName = "test1";
+    user.Gender = "F";
+    user.DateOfBirth = new Date();
+    user.PlaceOfBirth = "Place1";
+    user.Email = "raj1@gmail.com";
+    user.MobileNo = 65341;
+    user.Password = "welcome1";
+    this.userService.addUser(user);
+
     //console.log("test - " + JSON.stringify(data));
 
     // stop here if form is invalid
