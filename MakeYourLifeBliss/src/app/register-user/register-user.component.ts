@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { MustMatch } from "../shared/must-match";
-import { DateValidator } from "../shared/date-validator";
+import { RegisterUserService } from "./register-user.service";
 
 @Component({
   selector: "app-register-user",
@@ -11,7 +11,10 @@ import { DateValidator } from "../shared/date-validator";
 export class RegisterUserComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: RegisterUserService
+  ) {}
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group(
@@ -39,6 +42,9 @@ export class RegisterUserComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+
+    let data: any = this.userService.getWeaterForeCast();
+    //console.log("test - " + JSON.stringify(data));
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
