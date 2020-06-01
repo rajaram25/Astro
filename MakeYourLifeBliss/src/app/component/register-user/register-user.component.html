@@ -1,0 +1,216 @@
+<!-- main app container -->
+
+<div class="main-container">
+  <div class="middle-content drop-shadow">
+    <h5 class="card-header" style="text-align: center;">
+      Personal Details
+    </h5>
+    <div class="card-body">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <!-- <div class="form-group col">
+          <label>Title</label>
+          <select
+            formControlName="title"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
+          >
+            <option value=""></option>
+            <option value="Mr">Mr</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Miss">Miss</option>
+            <option value="Ms">Ms</option>
+          </select>
+          <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+            <div *ngIf="f.title.errors.required">Title is required</div>
+          </div>
+        </div> -->
+          <div class="form-group col">
+            <label>Name</label>
+            <input
+              type="text"
+              formControlName="userName"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.userName.errors }"
+            />
+            <div
+              *ngIf="submitted && f.userName.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.userName.errors.required">
+                Name is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <fieldset class="form-group">
+          <label class="col-form-legend">Gender</label>
+          <div class="col-10">
+            <label class="form-check-label col-5">
+              <input
+                type="radio"
+                class="form-check-input"
+                formControlName="gender"
+                value="F"
+                [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+              />
+              Female
+            </label>
+            <label class="form-check-label col-5">
+              <input
+                type="radio"
+                class="form-check-input"
+                formControlName="gender"
+                value="M"
+              />
+              Male
+            </label>
+
+            <div *ngIf="submitted && f.gender.invalid" class="invalid-feedback">
+              <div *ngIf="f.gender.invalid" class="col">
+                Gender is required
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+          <label>Date of Birth</label>
+          <input
+            fromControlName="dateOfBirth"
+            class="form-control"
+            type="datetime-local"
+            [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }"
+          />
+
+          <div
+            *ngIf="submitted && f.dateOfBirth.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.dateOfBirth.errors.required">
+              Date of Birth is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Place of Birth</label>
+          <input
+            type="text"
+            formControlName="placeOfBirth"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.placeOfBirth.errors }"
+          />
+
+          <div
+            *ngIf="submitted && f.placeOfBirth.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.placeOfBirth.errors.required">
+              Place of Birth is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            type="text"
+            formControlName="email"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+          />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Mobile Number</label>
+          <input
+            type="text"
+            formControlName="mobileNumber"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }"
+          />
+
+          <div
+            *ngIf="submitted && f.mobileNumber.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.mobileNumber.errors.required">
+              Mobile number is required
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Password</label>
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+            />
+            <div
+              *ngIf="submitted && f.password.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="f.password.errors.minlength">
+                Password must be at least 6 characters
+              </div>
+            </div>
+          </div>
+          <div class="form-group col">
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              formControlName="confirmPassword"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid': submitted && f.confirmPassword.errors
+              }"
+            />
+            <div
+              *ngIf="submitted && f.confirmPassword.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.confirmPassword.errors.required">
+                Confirm Password is required
+              </div>
+              <div *ngIf="f.confirmPassword.errors.mustMatch">
+                Passwords must match
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group form-check">
+          <input
+            type="checkbox"
+            formControlName="acceptTerms"
+            id="acceptTerms"
+            class="form-check-input"
+            [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }"
+          />
+          <label for="acceptTerms" class="form-check-label"
+            >Accept Terms & Conditions</label
+          >
+          <div
+            *ngIf="submitted && f.acceptTerms.errors"
+            class="invalid-feedback"
+          >
+            Accept Ts & Cs is required
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary mr-1">Register</button>
+          <button class="btn btn-secondary" type="reset" (click)="onReset()">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

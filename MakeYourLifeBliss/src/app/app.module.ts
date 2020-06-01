@@ -2,18 +2,22 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-
+import { RegisterUserModule } from "./component/register-user/register-user.module";
+import { AppComponent } from "./component/app.component";
+import { PresentationModule } from "./presentation/presentation.module";
+import { LoginComponent } from "./login/login.component";
 import { ReactiveFormsModule } from "@angular/forms";
-import { RegisterUserModule } from "./register-user/register-user.module";
+import { HomeModule } from "./home/home.module";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    
     RegisterUserModule,
+    PresentationModule,
+    ReactiveFormsModule,
+    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,7 @@
 import { Injectable, Inject } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { User } from "../entity/user";
+import { User } from 'src/app/entity/user';
+
 
 @Injectable({
   providedIn: "root",
@@ -22,13 +23,7 @@ export class RegisterUserService {
   public listOfUsers: User[];
   getData: string = "api/Users";
   getListOfUsers() {
-    return this.http.get<User[]>(`${this._apiUrl}/${this.getData}`).subscribe(
-      (result) => {
-        this.listOfUsers = result;
-        console.log("test-listOfUsers-", this.listOfUsers);
-      },
-      (error) => console.error(error)
-    );
+    return this.http.get<User[]>(`${this._apiUrl}/${this.getData}`);
   }
 
   addData: string = "api/users";

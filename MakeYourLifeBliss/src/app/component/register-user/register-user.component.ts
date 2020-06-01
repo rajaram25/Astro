@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { MustMatch } from "../shared/must-match";
 import { RegisterUserService } from "./register-user.service";
-import { User } from "../entity/user";
+import { MustMatch } from "src/app/shared/must-match";
+import { User } from "src/app/entity/user";
 
 @Component({
   selector: "app-register-user",
@@ -54,13 +54,13 @@ export class RegisterUserComponent implements OnInit {
     }
 
     let user = new User();
-    user.UserName = this.f.userName.value;
+    user.userName = this.f.userName.value;
     user.Gender = this.f.gender.value;
-    user.DateOfBirth = this.f.dateOfBirth.value;
+    user.DateOfBirth = new Date();
     user.PlaceOfBirth = this.f.placeOfBirth.value;
     user.Email = this.f.email.value;
     user.MobileNo = this.f.mobileNumber.value;
-    user.Password = this.f.password.value;
+    user.password = this.f.password.value;
     this.userService.addUser(user);
 
     // display form values on success

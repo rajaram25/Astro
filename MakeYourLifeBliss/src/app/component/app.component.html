@@ -1,0 +1,30 @@
+<!-- <h1>Make Your Life Bliss</h1>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome</h1>
+    <h2>Angular & Bootstrap Demo</h2>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">Status</div>
+    <div class="panel-body">
+      <h3>{{ title }}</h3>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="container-fluid">
+  <mylb-header *ngIf="!isLoggedIn"></mylb-header>
+  <div style="margin: 5px;">
+    <router-outlet></router-outlet>
+  </div>
+</div> -->
+
+<!-- HERE'S THE LINE TO ADD... -->
+<div>
+  <div class="container-fluid drop-shadow">
+    <mylb-header *ngIf="!isLoggedIn"></mylb-header>
+  </div>
+  <div style="margin: 15px;">
+    <router-outlet></router-outlet>
+  </div>
+</div>
