@@ -1,4 +1,4 @@
-import { Injectable, Inject } from "@angular/core";
+import { Injectable, Inject, EventEmitter, Output } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { User } from "../entity/user";
 import { Observable, Subject } from "rxjs";
@@ -7,6 +7,9 @@ import { Observable, Subject } from "rxjs";
   providedIn: "root",
 })
 export class LoginService {
+  /** To notify to say the user got move away from dashboard. */
+  @Output() userLoggedIn: EventEmitter<boolean> = new EventEmitter();
+
   constructor(
     private http: HttpClient,
     @Inject("API_URL") private _apiUrl: string

@@ -22,9 +22,12 @@
 <!-- HERE'S THE LINE TO ADD... -->
 <div>
   <div class="container-fluid drop-shadow">
-    <mylb-header *ngIf="!isLoggedIn"></mylb-header>
+    <mylb-header></mylb-header>
   </div>
-  <div style="margin: 15px;">
+  <div style="margin: 15px; height: 80vh;">
     <router-outlet></router-outlet>
+  </div>
+  <div *ngIf="isUserLoggedIn" class="container-fluid drop-shadow">
+    <app-footer></app-footer>
   </div>
 </div>

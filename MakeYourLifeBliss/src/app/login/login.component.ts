@@ -13,9 +13,11 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   loginFormGroup: FormGroup;
   submitted = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private userService: RegisterUserService,
+    private loginService: LoginService,
     private router: Router
   ) {}
 
@@ -47,11 +49,13 @@ export class LoginComponent implements OnInit {
           if (
             r.userName === this.f.userName.value &&
             r.password === this.f.password.value
-          )
+          ) {
             this.router.navigate(
               ["/home"]
               // , {queryParams: { isUserLoggedIn: true },}
             );
+            this.loginService.userLoggedIn.emit(true);
+          }
         });
       },
       (error) => console.error(error)
