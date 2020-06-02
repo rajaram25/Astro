@@ -11,8 +11,8 @@ namespace _MakeMyLifeBlissWebApi.Models
         public DateTime DateOfBirth { get; set; }
         public string PlaceOfBirth { get; set; }
         public string Email { get; set; }
-        public int? MobileNo { get; set; }
+        public string MobileNo { get; set; }
         public string Password { get; set; }
-        public int? Status { get; set; }
+        public int Status { get; set; }
     }
 }

@@ -61,6 +61,7 @@ export class RegisterUserComponent implements OnInit {
     user.Email = this.f.email.value;
     user.MobileNo = this.f.mobileNumber.value;
     user.password = this.f.password.value;
+    user.Status = 1;
     this.userService.addUser(user);
 
     // display form values on success

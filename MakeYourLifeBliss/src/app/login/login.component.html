@@ -43,12 +43,32 @@
         </div>
 
         <div class="form-row">
-          <button class="btn btn-primary mr-1">Login</button>
-          <button class="btn btn-secondary" type="reset" (click)="onReset()">
-            Cancel
-          </button>
+          <div class="form-group col-12">
+            <button class="btn btn-primary col-12">Login</button>
+            <button
+              class="btn btn-secondary mt-1 col-12"
+              type="reset"
+              (click)="onReset()"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </form>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <button
+            class="btn btn-success mr-1 col-12"
+            (click)="onUserRegister()"
+          >
+            User Registration
+          </button>
+        </div>
+
+        <div *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+      </div>
     </div>
   </div>
 </div>

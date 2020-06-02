@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     return this.loginFormGroup.controls;
   }
 
+  errorMessage: string;
   onSubmit() {
     this.submitted = true;
 
@@ -40,6 +41,8 @@ export class LoginComponent implements OnInit {
     if (this.loginFormGroup.invalid) {
       return;
     }
+
+    let userFound: boolean = false;
 
     // let data: any = this.loginService.isGivenUserIsValid();
     this.userService.getListOfUsers().subscribe(
@@ -50,20 +53,28 @@ export class LoginComponent implements OnInit {
             r.userName === this.f.userName.value &&
             r.password === this.f.password.value
           ) {
-            this.router.navigate(
-              ["/home"]
-              // , {queryParams: { isUserLoggedIn: true },}
-            );
+            this.router.navigate(["/home"], {
+              queryParams: { isUserLoggedIn: true },
+            });
             this.loginService.userLoggedIn.emit(true);
+            userFound = true;
           }
         });
       },
       (error) => console.error(error)
     );
+
+    if (!userFound) {
+      this.errorMessage = "User name or Password is incorrect";
+    }
   }
 
   onReset() {
     this.submitted = false;
     this.loginFormGroup.reset();
+  }
+
+  onUserRegister() {
+    this.router.navigate(["/register"]);
   }
 }
