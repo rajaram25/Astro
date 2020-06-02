@@ -14,7 +14,7 @@ export function getBaseUrl() {
 }
 const providers = [
   { provide: "BASE_URL", useFactory: getBaseUrl, deps: [] },
-  { provide: "API_URL", useValue: "https://localhost:44311" },
+  { provide: "API_URL", useValue: "https://localhost:5001" },
 ];
 
 platformBrowserDynamic(providers)
