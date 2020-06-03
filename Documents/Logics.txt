@@ -1,0 +1,103 @@
+User Registration
+
+With Universe image in best
+
+
+house_id -> 1
+nakshatra_lord
+sub_lord
+-----------
+
+
+1 -> Sun, Rahu -> Ingoring Rahu -> because it resides in 1, 5, 9.
+
+
+-----------
+
+Sun
+---
+1) Sun -> find sub loard in house details -> no
+2)     -> find Sun in Naksatra_lord  -> 1, 5, 9
+
+Venus
+-----
+1) -> 0
+2) -> 0
+3) -> 10
+
+Jupiter
+----------
+1) -> 
+2) -> 3, 7, 11
+
+Logic
+------
+Loses to ->  7th house and 11th house are affected -> 
+Wins Over -> Next house and 5th house
+
+
+
+Sun -> Venus, Jupiter
+1,5,9 -> 10,   3, 7, 11
+apply the login -> 
+        10 - loses to 17 (5)-> 21 (9) -> 5, 9
+        10 - wins over 11, 15 (3) -> 11, 3
+
+        3  -> no need apply logic -> since, it wins by 10
+        7  -> loses to 14 (2) -> 18 (6) -> 2, 6
+           -> wins over 8 -> 12 -> 8, 12
+
+        11 -> no need apply logic -> since, it wins by 10
+
+Availabe -> 10, 7, so sun points to 7, 10
+         
+Moon
+-----
+1) Moon -> find sub loard in house details -> 3, 7, 11
+2)     -> dont find Moon in Naksatra_lord  -> since it found in subloard.
+
+Kethu
+----
+1) 12
+
+Saturn -> Moon, Kethu
+       -> 3, 7, 11 , 12
+
+        3 -> LT -> 10, 14(2)
+             WO -> 4, 8
+        7 -> LT ->  14 (2), 18 (6)
+             WO -> 8, 12
+        11 -> LT -> 18 (6), 22 (10)
+              WO -> 12, 16 (4)
+        12 -> lost
+     result -> 3, 7, 11
+Mars
+-----
+1) Mars -> find sub loard in house details -> none
+2)     -> find Mars in Naksatra_lord  -> 2, 6, 10.
+       -> if the planet is not found in both naksatra & sublord then
+             -> then find the planet in the house of planet sheet
+                 -> get the equivalent house id.
+            eg:
+                if Rahu not found in both sub lord and naksatra lord
+                then we pickup the value as 10, since the corresponding 
+                house column value 10.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
